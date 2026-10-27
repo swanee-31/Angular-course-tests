@@ -1,0 +1,9 @@
+<p>binding-tests works!</p>
+
+<h1>Bonjour,{{ pseudo }} </h1>
+<img [src]="avatar" width="100" alt="Avatar de {{ pseudo }} ">
+<button (click)="rechargeEnergie()">Recharger l'énergie</button>
+<button [disabled]="!estFatigue">dormir</button>
+<p>Changez votre pseudo ci-dessous.</p>
+<input type="text" [(ngModel)]="pseudo">
+<p>Votre pseudo actuel est : {{ pseudo }}</p>

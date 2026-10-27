@@ -1,0 +1,14 @@
+<p>async-pipe works!</p>
+<div class="card">
+      <h2>Chronometre</h2>
+      
+      <!-- Utilisation basique : le pipe s'abonne à timer$ et affiche la valeur -->
+      <p>Secondes écoulées : {{ timer$ | async }}</p>
+
+      <hr>
+
+      <!-- Utilisation avec @if et l'alias 'as' -->
+      @if (timer$ | async; as secondes) {
+        <p>Le flux est actif. Valeur en mémoire : <strong>{{ secondes }}</strong></p>
+      }
+</div>
