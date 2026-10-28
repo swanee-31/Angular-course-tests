@@ -7,6 +7,11 @@ export const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'binding-tests'
   },*/
+
+  {
+    path: 'support',
+    redirectTo: "Angular Front Avancé - 1.pdf"
+  },
   {
     path: 'binding-tests',
     loadComponent: () => import('./binding-tests/binding-tests').then(m => m.BindingTests)
