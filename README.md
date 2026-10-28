@@ -43,6 +43,11 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ```bash
 ng test
 ```
+To install PlayWright, which enables the possibility to run the tests in a browser:
+
+```bash
+npx playwright install
+
 
 ## Running end-to-end tests
 
