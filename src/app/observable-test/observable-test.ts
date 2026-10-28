@@ -1,10 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AsyncTest } from '../async-pipe/async-pipe';
+import { APHttpClient } from '../ap-http-client/ap-http-client';
 
 
 @Component({
-  imports: [AsyncTest],
+  imports: [AsyncTest, APHttpClient],
   selector: 'app-observable-test',
   styleUrl: './observable-test.css',
   templateUrl: './observable-test.html',
@@ -24,12 +25,14 @@ export class ObservableTest implements OnDestroy {
   });
   // À ce stade, RIEN ne s'est exécuté.
 
+  public isRunning: string = 'Not Running';
+
   constructor() {
     // On s'abonne au flux pour déclencher son exécution
     this.monFluxSubscription = this.monFlux$.subscribe({
-      next: (fruit) => console.log('Reçu :', fruit),
+      next: (fruit) => {console.log('Reçu :', fruit); this.isRunning = 'Running'; },
       error: (err) => console.error('Oups :', err),
-      complete: () => console.log('Terminé, plus de fruits !')
+      complete: () => {console.log('Terminé, plus de fruits !'); this.isRunning = 'Not Running'; }
     });
   }
 

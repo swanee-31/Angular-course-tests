@@ -1,0 +1,16 @@
+<p>ap-http-client works!</p>
+<h2>Profil Utilisateur</h2>
+    
+    <!-- L'Async Pipe lance la requête HTTP. 
+         Tant que la réponse n'est pas là, il n'affiche rien. -->
+    @if (user$ | async; as user) {
+      <ul>
+        <li>Nom : {{ user.name }}</li>
+        <li>Email : {{ user.email }}</li>
+        <li>Ville : {{ user.address.city }}</li>
+      </ul>
+      <h3>Détails JSON</h3>
+      <pre>{{ user | json }}</pre>
+    } @else {
+      <p>Récupération des données réseau en cours...</p>
+    }
