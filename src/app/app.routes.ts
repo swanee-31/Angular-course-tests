@@ -38,5 +38,13 @@ export const routes: Routes = [
   {
     path: 'productivityTracker',
     loadComponent: () => import('./productivity-tracker-component/productivity-tracker-component').then(m => m.ProductivityTrackerComponent)
+  },
+  {
+    path: 'sensorComponent',
+    loadComponent: () => import('./sensor-component/sensor-component').then(m => m.SensorComponent)
+  },
+  {
+    path: 'sensorAsyncComponent',
+    loadComponent: () => import('./sensor-async-component/sensor-async-component').then(m => m.SensorAsyncComponent)
   }
 ];
