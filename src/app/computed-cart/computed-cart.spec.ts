@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ComputedCart } from './computed-cart';
 
 describe('ComputedCart', () => {
@@ -12,7 +13,7 @@ describe('ComputedCart', () => {
 
     fixture = TestBed.createComponent(ComputedCart);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

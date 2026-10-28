@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { SensorAsyncComponent } from './sensor-async-component';
 
 describe('SensorAsyncComponent', () => {
@@ -12,7 +13,7 @@ describe('SensorAsyncComponent', () => {
 
     fixture = TestBed.createComponent(SensorAsyncComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

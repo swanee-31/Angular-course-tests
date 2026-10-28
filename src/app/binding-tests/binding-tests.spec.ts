@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { BindingTests } from './binding-tests';
 
 describe('BindingTests', () => {
@@ -12,7 +13,7 @@ describe('BindingTests', () => {
 
     fixture = TestBed.createComponent(BindingTests);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

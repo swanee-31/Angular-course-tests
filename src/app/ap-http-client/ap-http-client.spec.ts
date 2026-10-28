@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { APHttpClient } from './ap-http-client';
 
 describe('APHttpClient', () => {
@@ -12,7 +13,7 @@ describe('APHttpClient', () => {
 
     fixture = TestBed.createComponent(APHttpClient);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

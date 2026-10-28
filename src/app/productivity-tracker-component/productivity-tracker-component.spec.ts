@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ProductivityTrackerComponent } from './productivity-tracker-component';
 
 describe('ProductivityTrackerComponent', () => {
@@ -12,7 +13,7 @@ describe('ProductivityTrackerComponent', () => {
 
     fixture = TestBed.createComponent(ProductivityTrackerComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
