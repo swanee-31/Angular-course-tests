@@ -1,0 +1,14 @@
+<p>signal-test works!</p>
+<div class="card">
+      <h2>Chronomètre (Version Signals)</h2>
+      
+      <!-- On appelle simplement le signal comme une fonction -->
+      <p>Secondes écoulées : {{ timer() }}</p>
+
+      <hr>
+
+      <!-- Le bloc @if devient beaucoup plus naturel, sans mot-clé 'as' complexe -->
+      @if (timer() > 5) {
+        <p>Plus de 5 secondes se sont écoulées ! (Actuellement : {{ timer() }})</p>
+      }
+</div>

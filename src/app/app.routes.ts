@@ -22,5 +22,21 @@ export const routes: Routes = [
   {
     path: 'ap-http-client',
     loadComponent: () => import('./ap-http-client/ap-http-client').then(m => m.APHttpClient)
+  },
+  {
+    path: 'signal-tests',
+    loadComponent: () => import('./signal-test/signal-test').then(m => m.SignalTest)
+  },
+  {
+    path: 'computed-cart',
+    loadComponent: () => import('./computed-cart/computed-cart').then(m => m.ComputedCart)
+  },
+  {
+    path: 'effect-tests',
+    loadComponent: () => import('./effect-test/effect-test').then(m => m.EffectTest)
+  },
+  {
+    path: 'productivityTracker',
+    loadComponent: () => import('./productivity-tracker-component/productivity-tracker-component').then(m => m.ProductivityTrackerComponent)
   }
 ];

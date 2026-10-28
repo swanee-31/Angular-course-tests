@@ -1,0 +1,16 @@
+<p>computed-cart works!</p>
+<div class="card">
+      <p>Produit : Ordinateur Portable</p>
+      <p>Prix unitaire : {{ price() }} €</p>
+      
+      <button (click)="decrease()">-</button>
+      <span> Quantité : {{ quantity() }} </span>
+      <button (click)="increase()">+</button>
+
+      <!-- On lit le signal dérivé exactement comme un signal classique -->
+      <h3>Total à payer : {{ totalPrice() }} €</h3>
+      
+      @if(isFreeShipping()) {
+        <p class="badge">Frais de port offerts !</p>
+      }
+    </div>
