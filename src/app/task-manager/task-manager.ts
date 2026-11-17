@@ -48,7 +48,7 @@ import { TaskService } from '../services/task-service';
     li { margin: 10px 0; display: flex; justify-content: space-between; max-width: 400px; }
   `]
 })
-export class TaskManagerComponent {
+export class TaskManager {
   taskService = inject(TaskService);
   newTaskTitle = '';
 
