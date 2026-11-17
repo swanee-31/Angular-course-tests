@@ -71,6 +71,10 @@ export const routes: Routes = [
   {
     path: 'chart-dash-board',
     loadComponent: () => import('./chart-dash-board/chart-dash-board').then(m => m.DashboardComponent)
+  },
+  {
+    path: 'image-gallery',
+    loadComponent: () => import('./image-gallery/image-gallery').then(m => m.ImageGalleryComponent)
   }
 
 ];
