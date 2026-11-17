@@ -67,6 +67,10 @@ export const routes: Routes = [
   {
     path: 'good-performance',
     loadComponent: () => import('./good-performance-component/good-performance-component').then(m => m.GoodPerformanceComponent)
+  },
+  {
+    path: 'chart-dash-board',
+    loadComponent: () => import('./chart-dash-board/chart-dash-board').then(m => m.DashboardComponent)
   }
 
 ];
