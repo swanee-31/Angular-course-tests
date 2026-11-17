@@ -58,7 +58,7 @@ export const routes: Routes = [
   },
   {
     path: 'task-manager',
-    loadComponent: () => import('./task-manager/task-manager').then(m => m.TaskManagerComponent)
+    loadComponent: () => import('./task-manager/task-manager').then(m => m.TaskManager)
   }
 
 ];
