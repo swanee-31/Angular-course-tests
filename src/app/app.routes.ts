@@ -51,5 +51,14 @@ export const routes: Routes = [
   {
     path: 'sensorAsyncComponent',
     loadComponent: () => import('./sensor-async-component/sensor-async-component').then(m => m.SensorAsyncComponent)
+  },
+  {
+    path: 'counter',
+    loadComponent: () => import('./counter-component/counter-component').then(m => m.CounterComponent)
+  },
+  {
+    path: 'task-manager',
+    loadComponent: () => import('./task-manager/task-manager').then(m => m.TaskManagerComponent)
   }
+
 ];
