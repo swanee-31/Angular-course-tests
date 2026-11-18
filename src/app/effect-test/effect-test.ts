@@ -1,4 +1,5 @@
-import { Component, effect, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { afterNextRender, Component, effect, inject, PLATFORM_ID, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -8,18 +9,28 @@ import { Component, effect, signal } from '@angular/core';
   templateUrl: './effect-test.html',
 })
 export class EffectTest {
-  // On initialise le signal en lisant le localStorage (ou faux par défaut)
-  isDarkMode = signal(localStorage.getItem('theme') === 'dark');
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly initialized = signal(false);
+  isDarkMode = signal(false);
 
   constructor() {
+    afterNextRender(() => {
+      this.isDarkMode.set(localStorage.getItem('theme') === 'dark');
+      this.initialized.set(true);
+    });
+
     // On déclare l'effet dans le constructeur (contexte d'injection)
     effect(() => {
       // 1. Angular voit qu'on lit this.isDarkMode() ici.
       const dark = this.isDarkMode();
-      
+
+      if (!this.isBrowser || !this.initialized()) {
+        return;
+      }
+
       // 2. Ce code s'exécutera à chaque fois que isDarkMode change.
       console.log('Le thème a changé. Nouveau statut sombre :', dark);
-      
+
       // 3. Effet de bord (Interaction avec une API du navigateur)
       if (dark) {
         localStorage.setItem('theme', 'dark');

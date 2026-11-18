@@ -1,4 +1,5 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { afterNextRender, Component, computed, effect, inject, PLATFORM_ID, signal } from '@angular/core';
 
 const DAILY_GOAL = 5;
 
@@ -37,10 +38,9 @@ const DAILY_GOAL = 5;
   `]
 })
 export class ProductivityTrackerComponent {
-  // 1. SIGNAL : Initialisation depuis le cache (ou 0)
-  completedTasks = signal<number>(
-    parseInt(localStorage.getItem('tasks') || '0', 10)
-  );
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly initialized = signal(false);
+  completedTasks = signal(0);
 
   // 2. COMPUTED : Dérivation mathématique
   progressPercentage = computed(() => {
@@ -60,15 +60,26 @@ export class ProductivityTrackerComponent {
     effect(() => {
       // Angular tracke ce signal. Dès qu'il change, l'effet s'exécute.
       const current = this.completedTasks();
-      
+
+      if (!this.isBrowser || !this.initialized()) {
+        return;
+      }
+
       // Sauvegarde
       localStorage.setItem('tasks', current.toString());
-      
+
       // Notification externe
       if (current === DAILY_GOAL) {
         // Optionnel : un petit setTimeout pour laisser le DOM se mettre à jour visuellement avant l'alerte bloquante
         setTimeout(() => alert("Bravo, vous avez fini votre journée !"), 10);
       }
+    });
+
+    afterNextRender(() => {
+      this.completedTasks.set(
+        parseInt(localStorage.getItem('tasks') || '0', 10)
+      );
+      this.initialized.set(true);
     });
   }
 

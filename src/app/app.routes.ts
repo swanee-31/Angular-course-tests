@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
- /*
+ 
     {
     path: '', // Route d'accueil
     pathMatch: 'full',
     redirectTo: 'binding-tests'
-  },*/
+  },
 
   {
     path: 'support',

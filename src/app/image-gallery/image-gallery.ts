@@ -41,11 +41,11 @@ import { NgOptimizedImage } from '@angular/common'; // 1. Import de la directive
           ngSrc="https://picsum.photos/id/1015/600/400" 
           width="600" 
           height="400" 
-          placeholder 
-          alt="Paysage de rivière"
+          placeholder="blur"
+          alt="Paysage de forêt"
         />
       </section>
-
+       
       <!-- 
         CAS N°3 : L'IMAGE FLUIDE (Responsive / Background)
         Parfois, on ne connaît pas la taille exacte de l'image (ex: image de fond).
