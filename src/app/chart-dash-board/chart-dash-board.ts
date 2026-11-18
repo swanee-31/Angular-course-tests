@@ -25,9 +25,9 @@ import { FormsModule } from '@angular/forms';
         <!-- Affiché immédiatement à la place du composant (ne déclenche aucun appel réseau) -->
         <div class="box skeleton">Le graphique apparaîtra ici...</div>
       } 
-      @loading (minimum 1s) {
+      @loading (minimum 2s) {
         <!-- S'affiche PENDANT le téléchargement réseau du chunk JavaScript -->
-        <!-- 'minimum 1s' évite un clignotement désagréable si la connexion est très rapide -->
+        <!-- 'minimum 2s' évite un clignotement désagréable si la connexion est très rapide -->
         <div class="box spinner">⏳ Téléchargement du module graphique en cours...</div>
       } 
       @error {

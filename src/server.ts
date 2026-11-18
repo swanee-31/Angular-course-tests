@@ -5,6 +5,7 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import helmet from 'helmet';
 import { join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -23,6 +24,18 @@ const angularApp = new AngularNodeAppEngine();
  * });
  * ```
  */
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'none'"],
+ //   scriptSrc: ["'self'"],
+    scriptSrc: ["'self'", "'unsafe-inline'"], // Pour Angular Universal (SSR) et le code généré par le compilateur Angular
+    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+    imgSrc: ["'self'", "data:", "https://picsum.photos","https://fastly.picsum.photos"],
+    connectSrc: ["'self'", "https://api.mon-backend.com"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com"]
+  }
+}));
 
 /**
  * Serve static files from /browser

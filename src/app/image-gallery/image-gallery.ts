@@ -41,7 +41,7 @@ import { NgOptimizedImage } from '@angular/common'; // 1. Import de la directive
           ngSrc="https://picsum.photos/id/1015/600/400" 
           width="600" 
           height="400" 
-          placeholder="blur"
+       //   placeholder="blur"
           alt="Paysage de forêt"
         />
       </section>
