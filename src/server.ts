@@ -33,7 +33,8 @@ app.use(helmet.contentSecurityPolicy({
     styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
     imgSrc: ["'self'", "data:", "https://picsum.photos","https://fastly.picsum.photos"],
     connectSrc: ["'self'", "https://api.mon-backend.com"],
-    fontSrc: ["'self'", "https://fonts.gstatic.com"]
+    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    frameSrc: ["'self'", "https://www.youtube.com", "https://youtu.be/h5OJUSS_8IA?si=iyLVeVcRRxaVzHDi"]
   }
 }));
 
